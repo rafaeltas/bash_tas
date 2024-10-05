@@ -1,5 +1,7 @@
 import subprocess
 from platform import system
+import platform
+import distro
 # Verificar o OS atual do usuário
 # Executando o comando sudo dnf upgrade
 
@@ -67,7 +69,11 @@ class TasMybash:
             "org.telegram.desktop.webview",
             "org.videolan.VLC"
         ]
-        self.identificar_sistema_operacional()
+        # self.identificar_sistema_operacional()
+        if "fedora" in distro.name().lower():
+            print("aqui tem um fedorinha, eeeeeem")
+        else:
+            print("tem nada não")
 
     def identificar_sistema_operacional(self):
         sistema = system()
@@ -75,7 +81,11 @@ class TasMybash:
             print("Você está usando o Windows.")
         elif sistema == "Linux":
             print("Você está usando o Linux.")
-            self.upgrade_os(sistema)
+            if distro.name() == "Fedora":
+                print("Carai, é um fedora")
+            else:
+                print("outra coisa")
+            # self.upgrade_os(sistema)
         elif sistema == "Darwin":
             print("Você está usando o macOS.")
         else:
