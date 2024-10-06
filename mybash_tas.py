@@ -59,6 +59,9 @@ class TasMybash:
         self.install_packages = [
             "sudo dnf copr enable peterwu/rendezvous",
             "sudo dnf install bibata-cursor-themes",
+            "sudo dnf install solaar",
+            "sudo dnf group install Multimedia",
+            
         ]
         self.gnome_config = [
             "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'",
