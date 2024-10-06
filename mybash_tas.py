@@ -2,19 +2,6 @@ import subprocess
 from platform import system
 import platform
 import distro
-# Verificar o OS atual do usuário
-# Executando o comando sudo dnf upgrade
-
-# Abre o arquivo txt com os Application IDs
-# with open("flatpak_app_ids.txt", "r") as file:
-#     # Lê todas as linhas do arquivo e remove espaços em branco ou quebras de linha
-#     app_list = [line.strip() for line in file.readlines()]
-
-
-# for my_app in app_list:
-#     subprocess.run(["sudo", "flatpak", "install", "flathub", f'{
-#                    my_app}'], capture_output=True, text=True)
-
 
 class TasMybash:
     def __init__(self):
@@ -78,10 +65,28 @@ class TasMybash:
             "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'",
         ]
         self.identificar_sistema_operacional()
-        self.flatpak_instalation()
-        self.instalation_custom_gnome()
-        self.gnome_configuration()
         
+        
+    def identificar_sistema_operacional(self):
+        sistema = system()
+        if sistema == "Windows":
+            print("Você está usando o Windows.")
+        elif sistema == "Linux":
+            print("Você está usando o Linux.")
+            current_distro = distro.name()
+            self.single_distro = current_distro.split()
+            if self.single_distro[0] == "Fedora":
+                print("aqui tem um fedorinha, eeeeeem")
+                self.upgrade_os(self.os_pkg_data[f"{sistema}"][f"{self.single_distro[0]}"])
+                self.flatpak_instalation()
+                # self.instalation_custom_gnome()
+            else:
+                print("tem nada não")
+        elif sistema == "Darwin":
+            print("Você está usando o macOS.")
+        else:
+            print("Não foi possível identificar o sistema operacional.")
+
     # FLATPAKS VERIFICATION
     def flatpak_instalation(self):
         for app in self.app_list:
@@ -103,22 +108,6 @@ class TasMybash:
     # Função para instalar um app usando Flatpak
     def install_flatpak_app(self, app_id):
         subprocess.run(["flatpak", "install", "-y", app_id])
-        
-    def identificar_sistema_operacional(self):
-        sistema = system()
-        if sistema == "Windows":
-            print("Você está usando o Windows.")
-        elif sistema == "Linux":
-            print("Você está usando o Linux.")
-            if "Fedora" in distro.name():
-                print("aqui tem um fedorinha, eeeeeem")
-                self.upgrade_os(self.os_pkg_data["Linux"]["Fedora"])
-            else:
-                print("tem nada não")
-        elif sistema == "Darwin":
-            print("Você está usando o macOS.")
-        else:
-            print("Não foi possível identificar o sistema operacional.")
 
     def upgrade_os(self, os_pkg):
         subprocess.run(
