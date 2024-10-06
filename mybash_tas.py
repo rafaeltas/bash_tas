@@ -70,7 +70,16 @@ class TasMybash:
             "org.videolan.VLC"
         ]
         self.identificar_sistema_operacional()
+        self.flatpak_instalation()
         
+    def flatpak_instalation(self):
+        for app in self.app_list:
+            if self.is_flatpak_installed(app):
+                print(f"{app} já está instalado.")
+            else:
+                print(f"{app} não está instalado. Instalando...")
+                self.install_flatpak_app(app)
+
     def identificar_sistema_operacional(self):
         sistema = system()
         if sistema == "Windows":
@@ -89,7 +98,19 @@ class TasMybash:
 
     def upgrade_os(self, os_pkg):
         subprocess.run(
-            ["sudo", f'{os_pkg}', "upgrade", "-y"], capture_output=True, text=True)
+            ["sudo", f'{os_pkg}', "update", "-y"], capture_output=True, text=True)
+    # Função para verificar se um app está instalado
+    def is_flatpak_installed(self, app_id):
+        result = subprocess.run(
+            ["flatpak", "list", "--app"],
+            stdout=subprocess.PIPE,
+            text=True
+        )
+        return app_id in result.stdout
+
+    # Função para instalar um app usando Flatpak
+    def install_flatpak_app(self, app_id):
+        subprocess.run(["flatpak", "install", "-y", app_id])
 
 
 TasMybash()
