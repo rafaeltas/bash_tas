@@ -19,8 +19,8 @@ import distro
 class TasMybash:
     def __init__(self):
         # Data
-        self.os_pkg_data = {"linux":{"fedora": "dnf", "ubuntu": "apt",
-                            "arch": "pacman"}, "windows": "winget"}
+        self.os_pkg_data = {"Linux":{"Fedora": "dnf", "Ubuntu": "apt",
+                            "Arch": "pacman"}, "Windows": "winget"}
         self.app_list = [
             "app.drey.Dialect",
             "app.moosync.moosync",
@@ -69,23 +69,19 @@ class TasMybash:
             "org.telegram.desktop.webview",
             "org.videolan.VLC"
         ]
-        # self.identificar_sistema_operacional()
-        if "fedora" in distro.name().lower():
-            print("aqui tem um fedorinha, eeeeeem")
-        else:
-            print("tem nada não")
-
+        self.identificar_sistema_operacional()
+        
     def identificar_sistema_operacional(self):
         sistema = system()
         if sistema == "Windows":
             print("Você está usando o Windows.")
         elif sistema == "Linux":
             print("Você está usando o Linux.")
-            if distro.name() == "Fedora":
-                print("Carai, é um fedora")
+            if "Fedora" in distro.name():
+                print("aqui tem um fedorinha, eeeeeem")
+                self.upgrade_os(self.os_pkg_data["Linux"]["Fedora"])
             else:
-                print("outra coisa")
-            # self.upgrade_os(sistema)
+                print("tem nada não")
         elif sistema == "Darwin":
             print("Você está usando o macOS.")
         else:
