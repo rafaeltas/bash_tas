@@ -69,9 +69,20 @@ class TasMybash:
             "org.telegram.desktop.webview",
             "org.videolan.VLC"
         ]
+        self.install_packages = [
+            "sudo dnf copr enable peterwu/rendezvous",
+            "sudo dnf install bibata-cursor-themes",
+        ]
+        self.gnome_config = [
+            "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'",
+            "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'",
+        ]
         self.identificar_sistema_operacional()
         self.flatpak_instalation()
+        self.instalation_custom_gnome()
+        self.gnome_configuration()
         
+    # FLATPAKS VERIFICATION
     def flatpak_instalation(self):
         for app in self.app_list:
             if self.is_flatpak_installed(app):
@@ -80,6 +91,19 @@ class TasMybash:
                 print(f"{app} não está instalado. Instalando...")
                 self.install_flatpak_app(app)
 
+    # Função para verificar se um app está instalado
+    def is_flatpak_installed(self, app_id):
+        result = subprocess.run(
+            ["flatpak", "list", "--app"],
+            stdout=subprocess.PIPE,
+            text=True
+        )
+        return app_id in result.stdout
+
+    # Função para instalar um app usando Flatpak
+    def install_flatpak_app(self, app_id):
+        subprocess.run(["flatpak", "install", "-y", app_id])
+        
     def identificar_sistema_operacional(self):
         sistema = system()
         if sistema == "Windows":
@@ -99,18 +123,20 @@ class TasMybash:
     def upgrade_os(self, os_pkg):
         subprocess.run(
             ["sudo", f'{os_pkg}', "update", "-y"], capture_output=True, text=True)
-    # Função para verificar se um app está instalado
-    def is_flatpak_installed(self, app_id):
-        result = subprocess.run(
-            ["flatpak", "list", "--app"],
-            stdout=subprocess.PIPE,
-            text=True
-        )
-        return app_id in result.stdout
-
-    # Função para instalar um app usando Flatpak
-    def install_flatpak_app(self, app_id):
-        subprocess.run(["flatpak", "install", "-y", app_id])
+    
+    def instalation_custom_gnome(self, os_pkg):
+        for comando_str in self.install_packages:
+            # Divide a string em partes para formar uma lista
+            comando = comando_str.split()
+            print(f"Executando: {' '.join(comando)}")  # Mostra o comando que está sendo executado
+            subprocess.run(comando)
+    
+    def gnome_configuration(self):
+        for comando_str in self.gnome_config:
+            # Divide a string em partes para formar uma lista
+            comando = comando_str.split()
+            print(f"Executando: {' '.join(comando)}")  # Mostra o comando que está sendo executado
+            subprocess.run(comando)
 
 
 TasMybash()
