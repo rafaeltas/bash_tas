@@ -92,6 +92,7 @@ class TasMybash:
 
     # FLATPAKS VERIFICATION
     def flatpak_instalation(self):
+        subprocess.run(["flatpak", "remote-modify", "--priority=1", "flathub"], capture_output=True, text=True)
         for app in self.app_list:
             if self.is_flatpak_installed(app):
                 print(f"{app} já está instalado.")
