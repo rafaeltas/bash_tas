@@ -84,6 +84,7 @@ class TasMybash:
                 self.upgrade_os(self.os_pkg_data[f"{sistema}"][f"{self.single_distro[0]}"])
                 self.flatpak_instalation()
                 self.instalation_custom_gnome(self.os_pkg_data[f"{sistema}"][f"{self.single_distro[0]}"])
+                self.gnome_configuration()
             else:
                 print("tem nada não")
         elif sistema == "Darwin":
