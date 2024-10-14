@@ -58,6 +58,7 @@ class TasMybash:
         ]
         self.install_packages = [
             "sudo dnf install gnome-tweaks",
+            "gnome-tweaks",
             "sudo dnf copr enable peterwu/rendezvous",
             "sudo dnf install bibata-cursor-themes",
             "sudo dnf install solaar",
