@@ -57,12 +57,12 @@ class TasMybash:
             "org.videolan.VLC"
         ]
         self.install_packages = [
-            "sudo dnf install gnome-tweaks",
+            "sudo dnf install gnome-tweaks -y",
             "gnome-tweaks",
-            "sudo dnf copr enable peterwu/rendezvous",
-            "sudo dnf install bibata-cursor-themes",
-            "sudo dnf install solaar",
-            "sudo dnf group install Multimedia",
+            "sudo dnf copr enable peterwu/rendezvous -y",
+            "sudo dnf install bibata-cursor-themes -y",
+            "sudo dnf install solaar -y",
+            "sudo dnf group install Multimedia -y",
             
         ]
         self.gnome_config = [
