@@ -69,6 +69,7 @@ class TasMybash:
         self.gnome_config = [
             "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'",
             "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'",
+            "gsettings set org.gnome.desktop.interface cursor-size 20"
         ]
         self.identificar_sistema_operacional()
         
