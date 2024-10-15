@@ -54,7 +54,8 @@ class TasMybash:
             "org.ryujinx.Ryujinx",
             "org.telegram.desktop",
             "org.telegram.desktop.webview",
-            "org.videolan.VLC"
+            "org.videolan.VLC",
+            "io.github.nokse22.Exhibit"
         ]
         self.install_packages = [
             "sudo dnf install gnome-tweaks -y",
