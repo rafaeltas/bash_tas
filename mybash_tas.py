@@ -28,7 +28,6 @@ class TasMybash:
             "io.github.giantpinkrobots.flatsweep",
             "io.github.jeffshee.Hidamari",
             "io.github.peazip.PeaZip",
-            "io.github.peazip.PeaZip.Addon.i386",
             "io.github.shiftey.Desktop",
             "io.github.zen_browser.zen",
             "io.gitlab.adhami3310.Converter",
@@ -38,7 +37,6 @@ class TasMybash:
             "net.pcsx2.PCSX2",
             "nl.hjdskes.gcolor3",
             "org.blender.Blender",
-            "org.blender.Blender.Codecs",
             "org.duckstation.DuckStation",
             "org.gimp.GIMP",
             "org.gnome.Extensions",
@@ -53,7 +51,6 @@ class TasMybash:
             "org.qbittorrent.qBittorrent",
             "org.ryujinx.Ryujinx",
             "org.telegram.desktop",
-            "org.telegram.desktop.webview",
             "org.videolan.VLC",
             "io.github.nokse22.Exhibit"
         ]
