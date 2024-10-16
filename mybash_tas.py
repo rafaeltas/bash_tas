@@ -61,7 +61,7 @@ class TasMybash:
             "sudo dnf install bibata-cursor-themes -y",
             "sudo dnf install solaar -y",
             "sudo dnf group install Multimedia -y",
-            
+            "sudo dnf install neovim",            
         ]
         self.gnome_config = [
             "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'",
