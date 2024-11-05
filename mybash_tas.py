@@ -71,6 +71,14 @@ class TasMybash:
             "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'",
             "gsettings set org.gnome.desktop.interface cursor-size 20"
         ]
+        # Add Custom shortcuts:
+        # Example to open Ulauncher
+        # gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']"
+        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher'
+        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle'
+        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space'
+
+
         self.identificar_sistema_operacional()
         
         
