@@ -56,7 +56,6 @@ class TasMybash:
         ]
         self.install_packages = [
             "sudo dnf install gnome-tweaks -y",
-            "sudo dnf install dnf5 -y",
             "sudo dnf upgrade -y",
             "gnome-tweaks",
             "sudo dnf copr enable peterwu/rendezvous -y",
