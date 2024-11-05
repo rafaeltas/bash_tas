@@ -60,6 +60,7 @@ class TasMybash:
             "gnome-tweaks",
             "sudo dnf copr enable peterwu/rendezvous -y",
             "sudo dnf install bibata-cursor-themes -y",
+            "sudo dnf install ulauncher -y",
             "sudo dnf install solaar -y",
             "sudo dnf group install Multimedia -y",
             "sudo dnf install neovim",
