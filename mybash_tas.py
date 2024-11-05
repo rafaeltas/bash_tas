@@ -78,6 +78,8 @@ class TasMybash:
         # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle'
         # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space'
 
+        # Note: Maybe create another file to my own configuration 
+
 
         self.identificar_sistema_operacional()
         
