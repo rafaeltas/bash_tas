@@ -57,14 +57,14 @@ class TasMybash:
         self.install_packages = [
             "sudo dnf install gnome-tweaks -y",
             "sudo dnf install dnf5 -y",
-            "sudo dnf5 upgrade -y",
+            "sudo dnf upgrade -y",
             "gnome-tweaks",
             "sudo dnf copr enable peterwu/rendezvous -y",
             "sudo dnf install bibata-cursor-themes -y",
             "sudo dnf install solaar -y",
             "sudo dnf group install Multimedia -y",
             "sudo dnf install neovim",
-            "sudo dnf5 install akmod-nvidia -y",
+            "sudo dnf install akmod-nvidia -y",
         ]
         self.gnome_config = [
             "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'",
