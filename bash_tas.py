@@ -57,14 +57,14 @@ class TasMybash:
         self.install_packages = [
             "sudo dnf install gnome-tweaks -y",
             "sudo dnf upgrade -y",
-            "gnome-tweaks",
+            "sudo gnome-tweaks -y",
             "sudo kiall gnome-tweaks",
             "sudo dnf copr enable peterwu/rendezvous -y",
             "sudo dnf install bibata-cursor-themes -y",
             "sudo dnf install ulauncher -y",
             "sudo dnf install solaar -y",
             "sudo dnf group install Multimedia -y",
-            "sudo dnf install neovim",
+            "sudo dnf install neovim -y",
             "sudo dnf install akmod-nvidia -y",
         ]
         self.gnome_config = [
@@ -72,8 +72,14 @@ class TasMybash:
             "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'",
             "gsettings set org.gnome.desktop.interface cursor-size 20",
             "gsettings set org.gnome.desktop.interface accent-color 'purple'",
-            "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+            "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'",
+            # Shortcuts
+            'gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']"',
+            "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher'",
+            "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle'",
+            "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space'",
         ]
+        
         # Add Custom shortcuts:
         # Example to open Ulauncher
         # gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']"
