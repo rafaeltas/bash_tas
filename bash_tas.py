@@ -3,8 +3,6 @@ from platform import system
 import platform
 import distro
 
-#test
-
 class TasMybash:
     def __init__(self):
         # Data
