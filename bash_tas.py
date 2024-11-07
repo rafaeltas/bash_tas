@@ -58,6 +58,7 @@ class TasMybash:
             "sudo dnf install gnome-tweaks -y",
             "sudo dnf upgrade -y",
             "gnome-tweaks",
+            "sudo kiall gnome-tweaks",
             "sudo dnf copr enable peterwu/rendezvous -y",
             "sudo dnf install bibata-cursor-themes -y",
             "sudo dnf install ulauncher -y",
