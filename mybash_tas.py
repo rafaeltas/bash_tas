@@ -68,8 +68,10 @@ class TasMybash:
         ]
         self.gnome_config = [
             "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'",
-            "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'",
-            "gsettings set org.gnome.desktop.interface cursor-size 20"
+            "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'",
+            "gsettings set org.gnome.desktop.interface cursor-size 20",
+            "gsettings set org.gnome.desktop.interface accent-color 'purple'",
+            "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
         ]
         # Add Custom shortcuts:
         # Example to open Ulauncher
