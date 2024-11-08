@@ -71,6 +71,7 @@ class TasMybash:
             "nvim",
             
         ]
+        custom_key = "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']"
         self.gnome_config = [
             "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'",
             "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'",
@@ -78,7 +79,7 @@ class TasMybash:
             "gsettings set org.gnome.desktop.interface accent-color 'purple'",
             "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'",
             # Shortcuts
-            'gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']"',
+            f'gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings {custom_key}',
             "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher'",
             "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle'",
             "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space'",
