@@ -16,7 +16,6 @@ class TasMybash:
             "com.heroicgameslauncher.hgl",
             "com.mattjakeman.ExtensionManager",
             "com.obsproject.Studio",
-            "com.obsproject.Studio.Plugin.InputOverlay",
             "com.stremio.Stremio",
             "com.unity.UnityHub",
             "com.usebottles.bottles",
