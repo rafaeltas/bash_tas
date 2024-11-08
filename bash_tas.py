@@ -65,8 +65,6 @@ class TasMybash:
             "sudo dnf group install Multimedia -y",
             "sudo dnf install neovim -y",
             "sudo dnf install akmod-nvidia -y",
-            "git clone https://github.com/LazyVim/starter ~/.config/nvim",
-            "rm -rf ~/.config/nvim/.git",
             
         ]
         
@@ -154,19 +152,38 @@ class TasMybash:
             subprocess.run(comando)
             
     def neovim_configuration(self):
-        nvim_config = [
+        self.nvim_config = [
             "mkdir ~/.config/nvim",
             "cd ~/.config/nvim",
             "touch init.lua",
             "mkdir ~/.config/nvim/lua",
             "touch ~/.config/nvim/lua/keymaps.lua",
             "touch ~/.config/nvim/lua/options.lua",
+            "mkdir ~/.config/nvim/lua/plugins",
+            "touch ~/.config/nvim/lua/plugins/lazy.lua",
+            "git clone https://github.com/LazyVim/starter ~/.config/nvim",
+            "rm -rf ~/.config/nvim/.git",
         ]
-        with open('~/.config/nvim/init.lua', 'a') as file:
-            file.write('require("keymaps") \n')
-            file.write('require("options") \n')
         
+        with open('~/.config/nvim/init.lua', 'a') as file:
+            file.write('require("keymaps")\n')
+            file.write('require("options")\n')
+            file.write('require("plugins.lazy")\n')
+            
+        with open('~/.config/nvim/lua/keymaps.lua', 'a') as file:
+            file.write('vim.g.mapleader = " "\n')
+
+        with open('~/.config/nvim/lua/options.lua', 'a') as file:
+            file.write('vim.opt.nu = true\n')
+            file.write('vim.opt.relativenumber = true\n')
+
+        with open('~/.config/nvim/lua/plugins/lazy.lua', 'a') as file:
+            file.write('require('lazy').setup({{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },})')
+        for comando_str in self.nvim_config:
+            comando = comando_str.split()
+            subprocess.run(comando)
         pass
+        
 
 
 TasMybash()
