@@ -68,7 +68,6 @@ class TasMybash:
             "sudo dnf install akmod-nvidia -y",
             "git clone https://github.com/LazyVim/starter ~/.config/nvim",
             "rm -rf ~/.config/nvim/.git",
-            "nvim",
             
         ]
         custom_key = "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']"
