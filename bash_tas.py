@@ -154,7 +154,19 @@ class TasMybash:
             print(f"Executando: {' '.join(comando)}")  # Mostra o comando que está sendo executado
             subprocess.run(comando)
             
-    def nvim_configuration(self):
+    def neovim_configuration(self):
+        nvim_config = [
+            "mkdir ~/.config/nvim",
+            "cd ~/.config/nvim",
+            "touch init.lua",
+            "mkdir ~/.config/nvim/lua",
+            "touch ~/.config/nvim/lua/keymaps.lua",
+            "touch ~/.config/nvim/lua/options.lua",
+        ]
+        with open('~/.config/nvim/init.lua', 'a') as file:
+            file.write('require("keymaps") \n')
+            file.write('require("options") \n')
+        
         pass
 
 
