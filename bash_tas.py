@@ -70,18 +70,22 @@ class TasMybash:
             "rm -rf ~/.config/nvim/.git",
             
         ]
-        custom_key = 'gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']"'
+        
         self.gnome_config = [
             "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'",
             "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'",
             "gsettings set org.gnome.desktop.interface cursor-size 20",
             "gsettings set org.gnome.desktop.interface accent-color 'purple'",
             "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'",
+            
             # Shortcuts
-            f"{custom_key}",
-            "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher'",
-            "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle'",
-            "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space'",
+            #
+            # CRIAR UMA FUNÇÃO PARA CRIAR AS SHORTCUTS
+            #
+            # gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']",
+            # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher',
+            # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle',
+            # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space',
         ]
 
 
@@ -149,6 +153,7 @@ class TasMybash:
             comando = comando_str.split()
             print(f"Executando: {' '.join(comando)}")  # Mostra o comando que está sendo executado
             subprocess.run(comando)
+            
     def nvim_configuration(self):
         pass
 
