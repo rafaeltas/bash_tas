@@ -66,6 +66,10 @@ class TasMybash:
             "sudo dnf group install Multimedia -y",
             "sudo dnf install neovim -y",
             "sudo dnf install akmod-nvidia -y",
+            "git clone https://github.com/LazyVim/starter ~/.config/nvim",
+            "rm -rf ~/.config/nvim/.git",
+            "nvim",
+            
         ]
         self.gnome_config = [
             "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'",
@@ -79,15 +83,6 @@ class TasMybash:
             "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle'",
             "gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space'",
         ]
-        
-        # Add Custom shortcuts:
-        # Example to open Ulauncher
-        # gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']"
-        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher'
-        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle'
-        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space'
-
-        # Note: Maybe create another file to my own configuration 
 
 
         self.identificar_sistema_operacional()
@@ -154,6 +149,8 @@ class TasMybash:
             comando = comando_str.split()
             print(f"Executando: {' '.join(comando)}")  # Mostra o comando que está sendo executado
             subprocess.run(comando)
+    def nvim_configuration(self):
+        pass
 
 
 TasMybash()
