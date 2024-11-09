@@ -164,6 +164,7 @@ class TasMybash:
             "git clone https://github.com/LazyVim/starter ~/.config/nvim",
             "rm -rf ~/.config/nvim/.git",
         ]
+        # Mudar "~/" para o comando da lib OS "os.path.expanduser('~')"
         
         with open('~/.config/nvim/init.lua', 'a') as file:
             file.write('require("keymaps")\n')
