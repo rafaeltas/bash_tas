@@ -178,8 +178,8 @@ class TasMybash:
             file.write('vim.opt.nu = true\n')
             file.write('vim.opt.relativenumber = true\n')
 
-        with open('~/.config/nvim/lua/plugins/lazy.lua', 'a') as file:
-            file.write('require('lazy').setup({{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },})')
+        #with open('~/.config/nvim/lua/plugins/lazy.lua', 'a') as file:
+            #file.write('require('lazy').setup({{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },})')
         for comando_str in self.nvim_config:
             comando = comando_str.split()
             subprocess.run(comando)
