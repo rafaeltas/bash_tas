@@ -1,7 +1,7 @@
 import subprocess
 from platform import system
-import platform
 import distro
+import os
 
 class TasMybash:
     def __init__(self):
@@ -65,6 +65,9 @@ class TasMybash:
             "sudo dnf group install Multimedia -y",
             "sudo dnf install neovim -y",
             "sudo dnf install akmod-nvidia -y",
+            "sudo npm install -g pyright -y",
+            "sudo dnf install python3-pip",
+            "sudo pip install pylint black",
             
         ]
         
@@ -103,6 +106,7 @@ class TasMybash:
                 self.flatpak_instalation()
                 self.instalation_custom_gnome(self.os_pkg_data[f"{sistema}"][f"{self.single_distro[0]}"])
                 self.gnome_configuration()
+                self.neovim_configuration()
             else:
                 print("tem nada não")
         elif sistema == "Darwin":
@@ -152,44 +156,31 @@ class TasMybash:
             subprocess.run(comando)
             
     def neovim_configuration(self):
-        dir_nvim = os.path.expanduser('~/.config/nvim')
-        os.makedir(f'{dir_nvim}', exist_ok=True)
+        self.expansao = os.path.expanduser('~')
+        #self.nvim_config = ["~/.config/nvim/lua/plugins"]
         
-        # self.nvim_config = [
-        #     "mkdir ~/.config/nvim",
-        #     "cd ~/.config/nvim",
-        #     "touch init.lua",
-        #     "mkdir ~/.config/nvim/lua",
-        #     "touch ~/.config/nvim/lua/keymaps.lua",
-        #     "touch ~/.config/nvim/lua/options.lua",
-        #     "mkdir ~/.config/nvim/lua/plugins",
-        #     "touch ~/.config/nvim/lua/plugins/lazy.lua",
-        #     "git clone https://github.com/LazyVim/starter ~/.config/nvim",
-        #     "rm -rf ~/.config/nvim/.git",
-        # ]
-        # # Mudar "~/" para o comando da lib OS "os.path.expanduser('~')"
-
-
-        
-        # with open('~/.config/nvim/init.lua', 'a') as file:
-        #     file.write('require("keymaps")\n')
-        #     file.write('require("options")\n')
-        #     file.write('require("plugins.lazy")\n')
+        self.git_comandos = [
+            f"git clone https://github.com/LazyVim/starter {self.expansao}/.config/nvim",
+            f'rm -rf {self.expansao}/.config/nvim/.git',
+            f'rm -rf {self.expansao}/.config/nvim/.gitignore',
+            f'rm -rf {self.expansao}/.config/nvim/README.md',
+            f'rm -rf {self.expansao}/.config/nvim/LICENSE',            
             
-        # with open('~/.config/nvim/lua/keymaps.lua', 'a') as file:
-        #     file.write('vim.g.mapleader = " "\n')
-
-        # with open('~/.config/nvim/lua/options.lua', 'a') as file:
-        #     file.write('vim.opt.nu = true\n')
-        #     file.write('vim.opt.relativenumber = true\n')
-
-        # #with open('~/.config/nvim/lua/plugins/lazy.lua', 'a') as file:
-        #     #file.write('require('lazy').setup({{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },})')
-        # for comando_str in self.nvim_config:
-        #     comando = comando_str.split()
-        #     subprocess.run(comando)
-        # pass
+        ]
+        for comando_str in self.git_comandos:
+            comando = comando_str.split()
+            subprocess.run(comando) 
         
+        #for commline in self.nvim_config:
+            #comand = commline
+            #dir_nvim = os.path.expanduser(f"{comand}")
+            #os.makedirs(f"{dir_nvim}", exist_ok=True)
+        
+        #with open(os.path.expanduser('~/.config/nvim/init.lua'), 'a') as file:
+            #file.write('require("keymaps")\n')
+            #file.write('require("options")\n')
+            #file.write('require("plugins.lazy")\n')
+
 
 
 TasMybash()
