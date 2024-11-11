@@ -68,6 +68,7 @@ class TasMybash:
             "sudo npm install -g pyright -y",
             "sudo dnf install python3-pip",
             "sudo pip install pylint black",
+            "sudo dnf install gnome-shell-extension-dash-to-dock -y",
             
         ]
         
@@ -78,7 +79,8 @@ class TasMybash:
             "gsettings set org.gnome.desktop.interface accent-color 'purple'",
             "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'",
             "gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,close'",
-            "gsettings set org.gnome.mutter center-new-windows true"
+            "gsettings set org.gnome.mutter center-new-windows true",
+            "gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32",
             
             # Shortcuts
             #
