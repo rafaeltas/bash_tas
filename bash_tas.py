@@ -77,6 +77,8 @@ class TasMybash:
             "gsettings set org.gnome.desktop.interface cursor-size 20",
             "gsettings set org.gnome.desktop.interface accent-color 'purple'",
             "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'",
+            "gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,close'",
+            "gsettings set org.gnome.mutter center-new-windows true"
             
             # Shortcuts
             #
