@@ -3,11 +3,14 @@ from platform import system
 import distro
 import os
 
+
 class TasMybash:
     def __init__(self):
         # Data
-        self.os_pkg_data = {"Linux":{"Fedora": "dnf", "Ubuntu": "apt",
-                            "Arch": "pacman"}, "Windows": "winget"}
+        self.os_pkg_data = {
+            "Linux": {"Fedora": "dnf", "Ubuntu": "apt", "Arch": "pacman"},
+            "Windows": "winget",
+        }
         self.app_list = [
             "app.drey.Dialect",
             "app.moosync.moosync",
@@ -17,11 +20,9 @@ class TasMybash:
             "com.mattjakeman.ExtensionManager",
             "com.obsproject.Studio",
             "com.stremio.Stremio",
-            "com.unity.UnityHub",
             "com.usebottles.bottles",
             "com.valvesoftware.Steam",
             "fr.handbrake.ghb",
-            "fr.natron.Natron",
             "io.freetubeapp.FreeTube",
             "io.github.flattool.Warehouse",
             "io.github.giantpinkrobots.flatsweep",
@@ -38,7 +39,6 @@ class TasMybash:
             "org.blender.Blender",
             "org.duckstation.DuckStation",
             "org.gimp.GIMP",
-            "org.gnome.Extensions",
             "org.gnome.FontManager",
             "org.gnome.Solanum",
             "org.gnome.World.PikaBackup",
@@ -49,9 +49,8 @@ class TasMybash:
             "org.nickvision.tubeconverter",
             "org.qbittorrent.qBittorrent",
             "org.ryujinx.Ryujinx",
-            "org.telegram.desktop",
             "org.videolan.VLC",
-            "io.github.nokse22.Exhibit"
+            "io.github.nokse22.Exhibit",
         ]
         self.install_packages = [
             "sudo dnf install gnome-tweaks -y",
@@ -62,16 +61,14 @@ class TasMybash:
             "sudo dnf install bibata-cursor-themes -y",
             "sudo dnf install ulauncher -y",
             "sudo dnf install solaar -y",
-            "sudo dnf group install Multimedia -y",
             "sudo dnf install neovim -y",
             "sudo dnf install akmod-nvidia -y",
             "sudo npm install -g pyright -y",
             "sudo dnf install python3-pip",
             "sudo pip install pylint black",
             "sudo dnf install gnome-shell-extension-dash-to-dock -y",
-            
         ]
-        
+
         self.gnome_config = [
             "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'",
             "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'",
@@ -81,7 +78,6 @@ class TasMybash:
             "gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,close'",
             "gsettings set org.gnome.mutter center-new-windows true",
             "gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32",
-            
             # Shortcuts
             #
             # CRIAR UMA FUNÇÃO PARA CRIAR AS SHORTCUTS
@@ -92,10 +88,8 @@ class TasMybash:
             # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space',
         ]
 
-
         self.identificar_sistema_operacional()
-        
-        
+
     def identificar_sistema_operacional(self):
         sistema = system()
         if sistema == "Windows":
@@ -106,9 +100,13 @@ class TasMybash:
             self.single_distro = current_distro.split()
             if self.single_distro[0] == "Fedora":
                 print("aqui tem um fedorinha, eeeeeem")
-                self.upgrade_os(self.os_pkg_data[f"{sistema}"][f"{self.single_distro[0]}"])
+                self.upgrade_os(
+                    self.os_pkg_data[f"{sistema}"][f"{self.single_distro[0]}"]
+                )
                 self.flatpak_instalation()
-                self.instalation_custom_gnome(self.os_pkg_data[f"{sistema}"][f"{self.single_distro[0]}"])
+                self.instalation_custom_gnome(
+                    self.os_pkg_data[f"{sistema}"][f"{self.single_distro[0]}"]
+                )
                 self.gnome_configuration()
                 self.neovim_configuration()
             else:
@@ -130,61 +128,69 @@ class TasMybash:
     # Função para verificar se um app está instalado
     def is_flatpak_installed(self, app_id):
         result = subprocess.run(
-            ["flatpak", "list", "--app"],
-            stdout=subprocess.PIPE,
-            text=True
+            ["flatpak", "list", "--app"], stdout=subprocess.PIPE, text=True
         )
         return app_id in result.stdout
 
     # Função para instalar um app usando Flatpak
     def install_flatpak_app(self, app_id):
-        subprocess.run(["flatpak", "install","--from", f'https://flathub.org/repo/appstream/{app_id}.flatpakref'
-, "-y"])
+        subprocess.run(
+            [
+                "flatpak",
+                "install",
+                "--from",
+                f"https://flathub.org/repo/appstream/{app_id}.flatpakref",
+                "-y",
+            ]
+        )
 
     def upgrade_os(self, os_pkg):
         subprocess.run(
-            ["sudo", f'{os_pkg}', "update", "-y"], capture_output=True, text=True)
-    
+            ["sudo", f"{os_pkg}", "update", "-y"], capture_output=True, text=True
+        )
+
     def instalation_custom_gnome(self, os_pkg):
         for comando_str in self.install_packages:
             # Divide a string em partes para formar uma lista
             comando = comando_str.split()
-            print(f"Executando: {' '.join(comando)}")  # Mostra o comando que está sendo executado
+            print(
+                f"Executando: {' '.join(comando)}"
+            )  # Mostra o comando que está sendo executado
             subprocess.run(comando)
-    
+
     def gnome_configuration(self):
         for comando_str in self.gnome_config:
             # Divide a string em partes para formar uma lista
             comando = comando_str.split()
-            print(f"Executando: {' '.join(comando)}")  # Mostra o comando que está sendo executado
+            print(
+                f"Executando: {' '.join(comando)}"
+            )  # Mostra o comando que está sendo executado
             subprocess.run(comando)
-            
+
     def neovim_configuration(self):
-        self.expansao = os.path.expanduser('~')
-        #self.nvim_config = ["~/.config/nvim/lua/plugins"]
-        
+        self.expansao = os.path.expanduser("~")
+        # self.nvim_config = ["~/.config/nvim/lua/plugins"]
+
         self.git_comandos = [
             f"git clone https://github.com/LazyVim/starter {self.expansao}/.config/nvim",
-            f'rm -rf {self.expansao}/.config/nvim/.git',
-            f'rm -rf {self.expansao}/.config/nvim/.gitignore',
-            f'rm -rf {self.expansao}/.config/nvim/README.md',
-            f'rm -rf {self.expansao}/.config/nvim/LICENSE',            
-            
+            f"rm -rf {self.expansao}/.config/nvim/.git",
+            f"rm -rf {self.expansao}/.config/nvim/.gitignore",
+            f"rm -rf {self.expansao}/.config/nvim/README.md",
+            f"rm -rf {self.expansao}/.config/nvim/LICENSE",
         ]
         for comando_str in self.git_comandos:
             comando = comando_str.split()
-            subprocess.run(comando) 
-        
-        #for commline in self.nvim_config:
-            #comand = commline
-            #dir_nvim = os.path.expanduser(f"{comand}")
-            #os.makedirs(f"{dir_nvim}", exist_ok=True)
-        
-        #with open(os.path.expanduser('~/.config/nvim/init.lua'), 'a') as file:
-            #file.write('require("keymaps")\n')
-            #file.write('require("options")\n')
-            #file.write('require("plugins.lazy")\n')
+            subprocess.run(comando)
 
+        # for commline in self.nvim_config:
+        # comand = commline
+        # dir_nvim = os.path.expanduser(f"{comand}")
+        # os.makedirs(f"{dir_nvim}", exist_ok=True)
+
+        # with open(os.path.expanduser('~/.config/nvim/init.lua'), 'a') as file:
+        # file.write('require("keymaps")\n')
+        # file.write('require("options")\n')
+        # file.write('require("plugins.lazy")\n')
 
 
 TasMybash()
