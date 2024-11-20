@@ -78,14 +78,6 @@ class TasMybash:
             "gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,close'",
             "gsettings set org.gnome.mutter center-new-windows true",
             "gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32",
-            # Shortcuts
-            #
-            # CRIAR UMA FUNÇÃO PARA CRIAR AS SHORTCUTS
-            #
-            # gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']",
-            # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher',
-            # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle',
-            # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space',
         ]
 
         self.identificar_sistema_operacional()
@@ -191,6 +183,28 @@ class TasMybash:
         # file.write('require("keymaps")\n')
         # file.write('require("options")\n')
         # file.write('require("plugins.lazy")\n')
+
+    def set_shortcuts(self):
+        subprocess.run(
+            [
+                "flatpak",
+                "install",
+                "--from",
+                "-y",
+            ]
+        )
+
+        gnome_set_keys = "gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings¨
+        gnome_set_keys.split()
+        # Shortcuts
+        #
+        # CRIAR UMA FUNÇÃO PARA CRIAR AS SHORTCUTS
+        #
+        # gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']",
+        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher',
+        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle',
+        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space',
+        pass
 
 
 TasMybash()
