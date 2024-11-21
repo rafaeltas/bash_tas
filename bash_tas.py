@@ -185,6 +185,7 @@ class TasMybash:
         # file.write('require("plugins.lazy")\n')
 
     def set_shortcuts(self):
+        pass
         subprocess.run(
             [
                 "flatpak",
@@ -194,7 +195,7 @@ class TasMybash:
             ]
         )
 
-        gnome_set_keys = "gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings¨
+        gnome_set_keys = "gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings"
         gnome_set_keys.split()
         # Shortcuts
         #
@@ -204,7 +205,6 @@ class TasMybash:
         # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher',
         # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle',
         # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space',
-        pass
 
 
 TasMybash()
