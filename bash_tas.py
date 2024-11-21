@@ -81,6 +81,7 @@ class TasMybash:
         ]
 
         self.identificar_sistema_operacional()
+        self.set_shortcuts()
 
     def identificar_sistema_operacional(self):
         sistema = system()
