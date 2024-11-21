@@ -185,7 +185,7 @@ class TasMybash:
         # file.write('require("plugins.lazy")\n')
 
     def set_shortcuts(self):
-        pass
+        # pass
 
         gnome_set_keys = "gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings"
         add_new_custom = " [/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/]"
