@@ -186,22 +186,27 @@ class TasMybash:
 
     def set_shortcuts(self):
         pass
-        subprocess.run(
-            [
-                "flatpak",
-                "install",
-                "--from",
-                "-y",
-            ]
-        )
 
         gnome_set_keys = "gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings"
-        gnome_set_keys.split()
+        add_new_custom = " [/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/]"
+        command_make = gnome_set_keys + add_new_custom
+        make_list_commands = command_make.split()
+
+        command_to_add = "'Launch Ulauncher',"
+        edit_new_command = f":/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name {command_to_add}"
+        make_list_ulaunch = edit_new_command.split()
+
+        subprocess.run(
+            make_list_commands,
+        )
+
+        # "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
+
         # Shortcuts
         #
         # CRIAR UMA FUNÇÃO PARA CRIAR AS SHORTCUTS
         #
-        # gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']",
+        # DONE! gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']",
         # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher',
         # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle',
         # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space',
