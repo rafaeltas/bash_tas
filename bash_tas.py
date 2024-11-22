@@ -188,6 +188,64 @@ class TasMybash:
     def set_shortcuts(self):
         # pass
 
+        # Define o caminho base para os atalhos personalizados
+        keybinding_path = (
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/"
+        )
+        custom_binding = "custom0/"
+        full_path = keybinding_path + custom_binding
+
+        # Define os comandos para configurar o atalho
+        shortcut_name = "Launch Ulauncher"
+        shortcut_command = "ulauncher-toggle"
+        shortcut_binding = "<Control>space"
+
+        # Configura a lista de atalhos
+        subprocess.run(
+            [
+                "gsettings",
+                "set",
+                "org.gnome.settings-daemon.plugins.media-keys",
+                "custom-keybindings",
+                f"['{full_path}']",
+            ]
+        )
+
+        # Configura o nome do atalho
+        subprocess.run(
+            [
+                "gsettings",
+                "set",
+                f"org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:{full_path}",
+                "name",
+                f"'{shortcut_name}'",
+            ]
+        )
+
+        # Configura o comando do atalho
+        subprocess.run(
+            [
+                "gsettings",
+                "set",
+                f"org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:{full_path}",
+                "command",
+                f"'{shortcut_command}'",
+            ]
+        )
+
+        # Configura a combinação de teclas do atalho
+        subprocess.run(
+            [
+                "gsettings",
+                "set",
+                f"org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:{full_path}",
+                "binding",
+                f"'{shortcut_binding}'",
+            ]
+        )
+
+        print("Atalho configurado com sucesso!")
+
         gnome_set_keys = "gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings"
         add_new_custom = " [/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/]"
         command_make = gnome_set_keys + add_new_custom
@@ -200,17 +258,6 @@ class TasMybash:
         subprocess.run(
             make_list_commands,
         )
-
-        # "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
-
-        # Shortcuts
-        #
-        # CRIAR UMA FUNÇÃO PARA CRIAR AS SHORTCUTS
-        #
-        # DONE! gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom0/']",
-        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Ulauncher',
-        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ulauncher-toggle',
-        # gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control>space',
 
 
 TasMybash()
