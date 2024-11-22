@@ -138,9 +138,7 @@ class TasMybash:
         )
 
     def upgrade_os(self, os_pkg):
-        subprocess.run(
-            ["sudo", f"{os_pkg}", "update", "-y"], capture_output=True, text=True
-        )
+        subprocess.run(["sudo", f"{os_pkg}", "update", "-y"], text=True, check=True)
 
     def instalation_custom_gnome(self, os_pkg):
         for comando_str in self.install_packages:
