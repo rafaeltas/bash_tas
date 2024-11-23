@@ -80,6 +80,20 @@ class TasMybash:
             "gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32",
         ]
 
+        self.custom_shortcuts_dic = {
+            "0": {
+                "shortcut_name": "Launch Ulauncher",
+                "shortcut_command": "ulauncher-toggle",
+                "shortcut_binding": "<Control>space",
+            },
+            "1": {
+                "shortcut_name": "Open Terminal",
+                "shortcut_command": "ptyxis",
+                "shortcut_binding": "<Control>Alt>T",
+            },
+            # Adicione mais atalhos conforme necessário
+        }
+
         self.identificar_sistema_operacional()
         self.set_shortcuts()
 
@@ -184,86 +198,65 @@ class TasMybash:
         # file.write('require("plugins.lazy")\n')
 
     def set_shortcuts(self):
-        # pass
-
-        self.custom_shortcuts_dic = {
-            "0": {
-                "shortcut_name": "Launch Ulauncher",
-                "shortcut_command": "ulauncher-toggle",
-                "shortcut_binding": "<Control>space",
-            }
-        }
-
         # Define o caminho base para os atalhos personalizados
         keybinding_path = (
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/"
         )
-        custom_binding = "custom0/"
-        full_path = keybinding_path + custom_binding
-
-        # Define os comandos para configurar o atalho
-        shortcut_name = "Launch Ulauncher"
-        shortcut_command = "ulauncher-toggle"
-        shortcut_binding = "<Control>space"
 
         # Configura a lista de atalhos
+        shortcut_paths = [
+            f"{keybinding_path}custom{index}/" for index in self.custom_shortcuts_dic
+        ]
         subprocess.run(
             [
                 "gsettings",
                 "set",
                 "org.gnome.settings-daemon.plugins.media-keys",
                 "custom-keybindings",
-                f"['{full_path}']",
+                str(shortcut_paths).replace(
+                    "'", '"'
+                ),  # Formata como JSON para o gsettings
             ]
         )
 
-        # Configura o nome do atalho
-        subprocess.run(
-            [
-                "gsettings",
-                "set",
-                f"org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:{full_path}",
-                "name",
-                f"'{shortcut_name}'",
-            ]
-        )
+        # Itera sobre o dicionário para configurar cada atalho
+        for index, shortcut in self.custom_shortcuts_dic.items():
+            custom_path = f"{keybinding_path}custom{index}/"
 
-        # Configura o comando do atalho
-        subprocess.run(
-            [
-                "gsettings",
-                "set",
-                f"org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:{full_path}",
-                "command",
-                f"'{shortcut_command}'",
-            ]
-        )
+            # Configura o nome do atalho
+            subprocess.run(
+                [
+                    "gsettings",
+                    "set",
+                    f"org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:{custom_path}",
+                    "name",
+                    shortcut["shortcut_name"],
+                ]
+            )
 
-        # Configura a combinação de teclas do atalho
-        subprocess.run(
-            [
-                "gsettings",
-                "set",
-                f"org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:{full_path}",
-                "binding",
-                f"'{shortcut_binding}'",
-            ]
-        )
+            # Configura o comando do atalho
+            subprocess.run(
+                [
+                    "gsettings",
+                    "set",
+                    f"org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:{custom_path}",
+                    "command",
+                    shortcut["shortcut_command"],
+                ]
+            )
 
-        print("Atalho configurado com sucesso!")
+            # Configura a combinação de teclas do atalho
+            subprocess.run(
+                [
+                    "gsettings",
+                    "set",
+                    f"org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:{custom_path}",
+                    "binding",
+                    shortcut["shortcut_binding"],
+                ]
+            )
 
-        gnome_set_keys = "gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings"
-        add_new_custom = " [/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/]"
-        command_make = gnome_set_keys + add_new_custom
-        make_list_commands = command_make.split()
-
-        command_to_add = "'Launch Ulauncher',"
-        edit_new_command = f":/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name {command_to_add}"
-        make_list_ulaunch = edit_new_command.split()
-
-        subprocess.run(
-            make_list_commands,
-        )
+        print("Atalhos configurados com sucesso!")
 
 
 TasMybash()
