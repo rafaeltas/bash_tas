@@ -186,6 +186,14 @@ class TasMybash:
     def set_shortcuts(self):
         # pass
 
+        self.custom_shortcuts_dic = {
+            "0": {
+                "shortcut_name": "Launch Ulauncher",
+                "shortcut_command": "ulauncher-toggle",
+                "shortcut_binding": "<Control>space",
+            }
+        }
+
         # Define o caminho base para os atalhos personalizados
         keybinding_path = (
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/"
