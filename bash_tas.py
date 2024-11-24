@@ -2,6 +2,7 @@ import subprocess
 from platform import system
 import distro
 import os
+import shutil
 
 
 class TasMybash:
@@ -190,15 +191,28 @@ class TasMybash:
             comando = comando_str.split()
             subprocess.run(comando)
 
-        # for commline in self.nvim_config:
-        # comand = commline
-        # dir_nvim = os.path.expanduser(f"{comand}")
-        # os.makedirs(f"{dir_nvim}", exist_ok=True)
+        # Add news plugins
+        # Caminho do diretório de origem (onde a pasta "plugins" está)
+        diretorio_origem = f"{self.expansao}/bash_tas/plugins"
 
-        # with open(os.path.expanduser('~/.config/nvim/init.lua'), 'a') as file:
-        # file.write('require("keymaps")\n')
-        # file.write('require("options")\n')
-        # file.write('require("plugins.lazy")\n')
+        # Caminho do diretório de destino (para onde você quer copiar os arquivos)
+        diretorio_destino = f"{self.expansao}/.config/nvim/lua/plugins"
+
+        # Lista de arquivos para copiar
+        arquivos = ["catppuccin.lua", "render-markdown.lua"]
+
+        # Copiar os arquivos
+        for arquivo in arquivos:
+            caminho_origem = os.path.join(diretorio_origem, arquivo)
+            caminho_destino = os.path.join(diretorio_destino, arquivo)
+
+            try:
+                shutil.copy(caminho_origem, caminho_destino)
+                print(f"{arquivo} copiado com sucesso!")
+            except FileNotFoundError:
+                print(f"O arquivo {arquivo} não foi encontrado!")
+            except Exception as e:
+                print(f"Erro ao copiar {arquivo}: {e}")
 
     def set_shortcuts(self):
         # Define o caminho base para os atalhos personalizados
