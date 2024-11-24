@@ -91,11 +91,6 @@ class TasMybash:
                 "shortcut_command": "ptyxis",
                 "shortcut_binding": "<Control><Alt>T",
             },
-            "2": {
-                "shortcut_name": "Launch Nautilus in Home",
-                "shortcut_command": "nautilus ~",
-                "shortcut_binding": "<Super>e",
-            },
             # Adicione mais atalhos conforme necessário
         }
 
