@@ -89,7 +89,7 @@ class TasMybash:
             "1": {
                 "shortcut_name": "Open Terminal",
                 "shortcut_command": "ptyxis",
-                "shortcut_binding": "<Control>Alt>T",
+                "shortcut_binding": "<Control><Alt>T",
             },
             # Adicione mais atalhos conforme necessário
         }
