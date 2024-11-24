@@ -172,6 +172,9 @@ class TasMybash:
             )  # Mostra o comando que está sendo executado
             subprocess.run(comando)
 
+    def terminal_config(self):
+        pass
+
     def neovim_configuration(self):
         self.expansao = os.path.expanduser("~")
         # self.nvim_config = ["~/.config/nvim/lua/plugins"]
