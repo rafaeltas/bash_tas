@@ -67,7 +67,8 @@ class TasMybash:
             "sudo dnf install akmod-nvidia -y",
             "sudo npm install -g pyright -y",
             "sudo dnf install python3-pip -y",
-            "pip install pylint black rich -y",
+            "pip install pylint black -y",
+            "pip install rich",
             "sudo dnf install gnome-shell-extension-dash-to-dock -y",
         ]
 
