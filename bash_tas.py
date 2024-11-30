@@ -17,6 +17,7 @@ class TasMybash:
             "app.drey.Dialect",
             "app.moosync.moosync",
             "com.discordapp.Discord",
+            "com.discordapp.DiscordCanary",
             "com.github.tchx84.Flatseal",
             "com.heroicgameslauncher.hgl",
             "com.mattjakeman.ExtensionManager",
@@ -158,8 +159,19 @@ class TasMybash:
         )
 
     def upgrade_os(self, os_pkg):
-        subprocess.run(["sudo", f"{os_pkg}", "update", "-y"], text=True, check=True)
+        new_repos_flatpak = [
+            "flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo",
+        ]
+        for comando_str_repo in new_repos_flatpak:
+            # Divide a string em partes para formar uma lista
+            comando_repo = comando_str_repo.split()
+            print(
+                f"Executando: {' '.join(comando_repo)}"
+            )  # Mostra o comando que está sendo executado
+            subprocess.run(comando_repo)
 
+        subprocess.run(["sudo", f"{os_pkg}", "update", "-y"], text=True, check=True)
+        
     def instalation_custom_gnome(self, os_pkg):
         for comando_str in self.install_packages:
             # Divide a string em partes para formar uma lista
