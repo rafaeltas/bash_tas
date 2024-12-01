@@ -17,7 +17,6 @@ class TasMybash:
             "app.drey.Dialect",
             "app.moosync.moosync",
             # "com.discordapp.Discord",
-            "com.discordapp.DiscordCanary",
             "com.github.tchx84.Flatseal",
             "com.heroicgameslauncher.hgl",
             "com.mattjakeman.ExtensionManager",
