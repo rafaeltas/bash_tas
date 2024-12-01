@@ -16,7 +16,7 @@ class TasMybash:
         self.app_list = [
             "app.drey.Dialect",
             "app.moosync.moosync",
-            "com.discordapp.Discord",
+            # "com.discordapp.Discord",
             "com.discordapp.DiscordCanary",
             "com.github.tchx84.Flatseal",
             "com.heroicgameslauncher.hgl",
