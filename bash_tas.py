@@ -238,6 +238,9 @@ class TasMybash:
                 print("Arquivo ZIP temporário removido.")
 
     def neovim_configuration(self):
+        """
+        Function receive the "who" is the OS to apply the correctly installation.
+        """
         self.expansao = os.path.expanduser("~")
         # self.nvim_config = ["~/.config/nvim/lua/plugins"]
 
