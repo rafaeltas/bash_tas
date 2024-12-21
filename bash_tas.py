@@ -16,7 +16,6 @@ class TasMybash:
         self.app_list = [
             "app.drey.Dialect",
             "app.moosync.moosync",
-            # "com.discordapp.Discord",
             "com.github.tchx84.Flatseal",
             "com.heroicgameslauncher.hgl",
             "com.mattjakeman.ExtensionManager",
@@ -170,7 +169,7 @@ class TasMybash:
             subprocess.run(comando_repo)
 
         subprocess.run(["sudo", f"{os_pkg}", "update", "-y"], text=True, check=True)
-        
+
     def instalation_custom_gnome(self, os_pkg):
         for comando_str in self.install_packages:
             # Divide a string em partes para formar uma lista
