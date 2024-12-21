@@ -69,8 +69,7 @@ class TasMybash:
             "pip install pylint black -y",
             "pip install rich",
             "sudo dnf install gnome-shell-extension-dash-to-dock -y",
-            "sudo dnf install pipx",
-            "pipx install poetry",
+            "curl -sSL https://install.python-poetry.org | python3 -",
         ]
 
         self.gnome_config = [
