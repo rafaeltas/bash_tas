@@ -261,7 +261,7 @@ class TasMybash:
         diretorio_destino = f"{self.expansao}/.config/nvim/lua/plugins"
 
         # Lista de arquivos para copiar
-        arquivos = ["catppuccin.lua", "render-markdown.lua"]
+        arquivos = ["catppuccin.lua", "render-markdown.lua", "alpha.lua"]
 
         # Copiar os arquivos
         for arquivo in arquivos:
