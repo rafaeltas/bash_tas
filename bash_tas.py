@@ -69,6 +69,9 @@ class TasMybash:
             "sudo dnf install python3-pip -y",
             "pip install pylint black -y",
             "pip install rich",
+            "sudo dnf copr enable pgdev/ghostty",
+            "sudo dnf install ghostty",
+            "sudo dnf install zsh",
             "sudo dnf install gnome-shell-extension-dash-to-dock -y",
             "curl -sSL https://install.python-poetry.org | python3 -",
         ]
