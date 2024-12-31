@@ -69,7 +69,7 @@ class TasMybash:
             "sudo dnf install python3-pip -y",
             "pip install pylint black -y",
             "pip install rich",
-            "sudo dnf copr enable pgdev/ghostty",
+            "sudo dnf copr enable pgdev/ghostty -y",
             "sudo dnf install ghostty -y",
             "sudo dnf install zsh -y",
             "sudo dnf install gnome-shell-extension-dash-to-dock -y",
