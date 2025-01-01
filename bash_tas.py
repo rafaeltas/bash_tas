@@ -64,7 +64,7 @@ class TasMybash:
             "sudo dnf install ulauncher -y",
             "sudo dnf install solaar -y",
             "sudo dnf install neovim -y",
-            "sudo dnf install akmod-nvidia -y",
+            # "sudo dnf install akmod-nvidia -y",
             "sudo npm install -g pyright -y",
             "sudo dnf install python3-pip -y",
             "pip install pylint black -y",
