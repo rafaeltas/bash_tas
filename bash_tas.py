@@ -70,6 +70,7 @@ class TasMybash:
             #"pip install pylint black",
             #"pip install rich",
             "sudo dnf install fzf -y",
+            "sudo dnf install luarocks -y",
             "sudo dnf copr enable pgdev/ghostty -y",
             "sudo dnf install ghostty -y",
             "sudo dnf install zsh -y",
