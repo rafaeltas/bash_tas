@@ -5,6 +5,10 @@ import os
 import shutil
 import requests
 
+# separe in fuctions to better
+# Make a function to compile softwares
+# Make function to config Ghostty terminal
+
 
 class TasMybash:
     def __init__(self):
