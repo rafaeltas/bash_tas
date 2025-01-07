@@ -19,9 +19,7 @@ class TasMybash:
         }
         self.app_list = [
             "app.drey.Dialect",
-            "app.moosync.moosync",
             "com.github.tchx84.Flatseal",
-            "com.heroicgameslauncher.hgl",
             "com.mattjakeman.ExtensionManager",
             "com.obsproject.Studio",
             "com.stremio.Stremio",
@@ -31,7 +29,6 @@ class TasMybash:
             "io.freetubeapp.FreeTube",
             "io.github.flattool.Warehouse",
             "io.github.giantpinkrobots.flatsweep",
-            "io.github.jeffshee.Hidamari",
             "io.github.peazip.PeaZip",
             "io.github.shiftey.Desktop",
             "io.github.zen_browser.zen",
@@ -46,7 +43,6 @@ class TasMybash:
             "org.gimp.GIMP",
             "org.gnome.FontManager",
             "org.gnome.Solanum",
-            "org.gnome.World.PikaBackup",
             "org.gnome.gitlab.YaLTeR.VideoTrimmer",
             "org.godotengine.Godot",
             "org.kde.krita",
@@ -68,18 +64,13 @@ class TasMybash:
             "sudo dnf install ulauncher -y",
             "sudo dnf install solaar -y",
             "sudo dnf install neovim -y",
-            #"sudo dnf install akmod-nvidia -y",
-            #"sudo npm install -g pyright -y",
             "sudo dnf install python3-pip -y",
-            #"pip install pylint black",
-            #"pip install rich",
             "sudo dnf install fzf -y",
             "sudo dnf install luarocks -y",
             "sudo dnf copr enable pgdev/ghostty -y",
             "sudo dnf install ghostty -y",
             "sudo dnf install zsh -y",
             "sudo dnf install gnome-shell-extension-dash-to-dock -y",
-            "curl -sSL https://install.python-poetry.org | python3 -",
         ]
 
         self.gnome_config = [
