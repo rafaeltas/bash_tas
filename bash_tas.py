@@ -95,6 +95,11 @@ class TasMybash:
                 "shortcut_command": "ptyxis",
                 "shortcut_binding": "<Control><Alt>T",
             },
+            "2": {
+                "shortcut_name": "Emojis Smille",
+                "shortcut_command": "flatpak run it.mijorus.smile",
+                "shortcut_binding": "<Super>.",
+            },
             # Adicione mais atalhos conforme necessário
         }
 
