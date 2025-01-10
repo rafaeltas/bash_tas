@@ -4,6 +4,7 @@ import distro
 import os
 import shutil
 import requests
+import asyncio
 
 # separe in fuctions to better
 # Make a function to compile softwares
