@@ -63,15 +63,18 @@ class TasMybash:
             "sudo dnf copr enable peterwu/rendezvous -y",
             "sudo dnf install bibata-cursor-themes -y",
             "sudo dnf install ulauncher -y",
-            "sudo dnf install solaar -y",
-            "sudo dnf install neovim -y",
+            "sudo dnf install pipx",
+            "pipx ensurepath",
             "sudo dnf install python3-pip -y",
             "sudo dnf install fzf -y",
             "sudo dnf install luarocks -y",
+            "sudo dnf install solaar -y",
+            "sudo dnf install neovim -y",
             "sudo dnf copr enable pgdev/ghostty -y",
             "sudo dnf install ghostty -y",
             "sudo dnf install zsh -y",
-            "sudo dnf install gnome-shell-extension-dash-to-dock -y",
+            "sudo pipx install --global uv",
+            "sudo pipx install posting",            
         ]
 
         self.gnome_config = [
