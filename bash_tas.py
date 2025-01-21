@@ -31,7 +31,6 @@ class TasMybash:
             "io.github.flattool.Warehouse",
             "io.github.giantpinkrobots.flatsweep",
             "io.github.peazip.PeaZip",
-            "io.github.shiftey.Desktop",
             "io.github.zen_browser.zen",
             "io.gitlab.adhami3310.Converter",
             "it.mijorus.gearlever",
@@ -42,7 +41,6 @@ class TasMybash:
             "org.blender.Blender",
             "org.duckstation.DuckStation",
             "org.gimp.GIMP",
-            "org.gnome.FontManager",
             "org.gnome.Solanum",
             "org.gnome.gitlab.YaLTeR.VideoTrimmer",
             "org.godotengine.Godot",
@@ -53,6 +51,7 @@ class TasMybash:
             "org.ryujinx.Ryujinx",
             "org.videolan.VLC",
             "io.github.nokse22.Exhibit",
+            "com.github.neithern.g4music",
         ]
         self.install_packages = [
             "sudo dnf install gnome-tweaks -y",
@@ -74,7 +73,7 @@ class TasMybash:
             "sudo dnf install ghostty -y",
             "sudo dnf install zsh -y",
             "sudo pipx install --global uv",
-            "sudo pipx install posting",            
+            "sudo pipx install posting",
         ]
 
         self.gnome_config = [

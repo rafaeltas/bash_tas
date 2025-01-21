@@ -20,11 +20,11 @@ class TasMyBash:
         )
 
         # Loop para ler a saída do subprocesso enquanto ele está em execução
-        async for stdout_line in process.stdout:
+        for stdout_line in process.stdout:
             print(stdout_line.decode())  # Imprime a saída no terminal
 
         # Loop para ler os erros do subprocesso, se houver
-        async for stderr_line in process.stderr:
+        for stderr_line in process.stderr:
             print(
                 stderr_line.decode(), end="", file=sys.stderr
             )  # Imprime erros no terminal
