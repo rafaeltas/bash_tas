@@ -52,6 +52,8 @@ class TasMybash:
             "org.videolan.VLC",
             "io.github.nokse22.Exhibit",
             "com.github.neithern.g4music",
+            "se.sjoerd.Graphs",
+            "dev.bragefuglseth.Keypunch",
         ]
         self.install_packages = [
             "sudo dnf install gnome-tweaks -y",
@@ -64,6 +66,7 @@ class TasMybash:
             "sudo dnf install ulauncher -y",
             "sudo dnf install pipx",
             "pipx ensurepath",
+            "pip install debugpy"
             "sudo dnf install python3-pip -y",
             "sudo dnf install fzf -y",
             "sudo dnf install luarocks -y",
