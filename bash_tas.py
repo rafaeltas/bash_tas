@@ -66,7 +66,7 @@ class TasMybash:
             "sudo dnf install ulauncher -y",
             "sudo dnf install pipx",
             "pipx ensurepath",
-            "pip install debugpy"
+            "pip install debugpy",
             "sudo dnf install python3-pip -y",
             "sudo dnf install fzf -y",
             "sudo dnf install luarocks -y",
