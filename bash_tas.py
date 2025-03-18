@@ -51,7 +51,6 @@ class TasMybash:
             "org.ryujinx.Ryujinx",
             "org.videolan.VLC",
             "io.github.nokse22.Exhibit",
-            "com.github.neithern.g4music",
             "se.sjoerd.Graphs",
             "dev.bragefuglseth.Keypunch",
         ]
