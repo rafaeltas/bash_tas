@@ -68,6 +68,7 @@ class TasMybash:
             "sudo dnf install python3-pip -y",
             "sudo dnf install fzf -y",
             "sudo dnf install luarocks -y",
+            "sudo dnf install lua5.1 -y",
             "sudo dnf install solaar -y",
             "sudo dnf install neovim -y",
             "sudo dnf copr enable pgdev/ghostty -y",
